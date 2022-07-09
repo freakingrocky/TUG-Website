@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+<style>
+img[alt=AppScripts] {
+    width: 36px;
+}</style>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# TUG Project DEMO [![Netlify Status](https://api.netlify.com/api/v1/badges/ff1ea5eb-5204-464f-8aee-8490326cf8e7/deploy-status)](https://app.netlify.com/sites/tug-demo/deploys) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) ![AppScripts](./IMG/appscriptslogo.png)
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is a simple Timed Up & Go Test, originally created for a study by AMSAHK. Please note that all the instructions and translations are provided by AMSAHK.
 
-### `yarn test`
+The website can time users while they perform a task, provide analytics *(Line Graph)* and collect feedback.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Personalized URL
+The URL of this project is https://tug-demo.netlify.app/ and is personalized based on the user based on the following schema:
+https://tug-demo.netlify.app/?__name=*Name*&__uid=*UID*
 
-### `yarn build`
+A test user has been created for demonstration purposes with the following parameters:  \
+Name: test \
+UID: t1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Thus, the URL for the user is: https://tug-demo.netlify.app/?__name=test&__uid=t1
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The parameters in the name and UID fields are also meant to be a  simple form of verification. Thus, data from only registered users is stored in the database.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Security is not a major concern for the project, thus a login system has not been implemented but since the UIDs for different users may be similar and only differ by the digit, name is also required as an added verification.
 
-### `yarn eject`
+## Database
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The database used in this project is **Firestore**. All user management is done using that as well. In order to create a new user, simply create a new entry in the following format in the firestore database under the uid_users collections:
+![Users Collection in Firestore](./IMG/users.png "Users Collection in Firestore")
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The feedback and time data is also stored in the database:
+Feedback | Time Data
+:-------------------------:|:-------------------------:
+![Feedback Collection in Firestore](./IMG/feedback.png "Feedback Collection in Firestore") | ![Time Collection in Firestore](./IMG/time.png "Time Collection in Firestore")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Firestore rules have been implemented to block unauthorized activity.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Google Sheets Automation
+For easily dealing with the data, an AppScript is created for automatically fetching the collected data from firestore into Google Sheets The [App Script](./AppScripts/) can be found [here](./AppScripts/).
 
-## Learn More
+The Google Sheets with the added functionality can be found [here](https://docs.google.com/spreadsheets/d/1OBnqi67jDJXp0iO76bz7AZRbPAeDIYf18ryp-hK17LU/edit#gid=0).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Google Sheets with added functionality](./IMG/sheets.png "Google Sheets with added functionality")
+## Analytics
+An analytics page provides users with a line graph to visualize their progress.
+![Analytics](./IMG/analytics.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A minimum of 7 days of data is required to access this page. The data for any missing days is generated automatically by averaging the two closest results and abnormal results that may have occurred due to accidental presses are removed *(This is done by excluding data points if the time taken is greater than 1.2 Standard Deviations from the average for the user)*.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## TODO
+- Refractor Code for better readability
+- Add Comments in code for better Developer Experience
+- Create a guide for usage *(of the website for other projects)*
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Contact Me
+Insta: *freakingrocky* \
+Email: *freakingrocky@gmail.com*
