@@ -86,7 +86,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    i18next.changeLanguage('cn');
     setInfoTxt(t('按制開始'))
   }, [])
 
