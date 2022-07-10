@@ -39,7 +39,7 @@ The Google Sheets with the added functionality can be found [here](https://docs.
 
 ![Google Sheets with added functionality](./IMG/sheets.png "Google Sheets with added functionality")
 ## Analytics
-An analytics page provides users with a line graph to visualize their progress.
+An analytics [page](https://tug-demo.netlify.app/analytics/?__user=t1&__name=test) provides users with a line graph to visualize their progress.
 ![Analytics](./IMG/analytics.png)
 
 A minimum of 7 days of data is required to access this page. The data for any missing days is generated automatically by averaging the two closest results and abnormal results that may have occurred due to accidental presses are removed *(This is done by excluding data points if the time taken is greater than 1.2 Standard Deviations from the average for the user)*.
