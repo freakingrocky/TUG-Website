@@ -89,7 +89,7 @@ function App() {
                         var float_1 = parseFloat(data[index].timetaken_c1)
                         var float_2 = parseFloat(data[index].timetaken_c2)
                         if (isNaN(float_2)) {
-                            times.push(float_1)
+                            times.push(float_1 * 2)
                         }
                         else
                         {times.push(float_1 + float_2)} }
