@@ -1,4 +1,4 @@
-/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './App.scss'
 import { db } from './firebase-config'
@@ -191,8 +191,8 @@ function App() {
           timetaken_c2: seconds,
           uid: uid,
           Time_fmt_2: Moment().format('lll'),
-          tmp_id: deleteField()
         })
+        console.log('Done')
           setFeedback("")}
         if (username != "Unknown")
         { AddData() }
