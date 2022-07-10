@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
 import './App.scss'
@@ -84,7 +85,14 @@ function App() {
             var final_dates = [];
             var times_per_day = []
                 for (let index = 0; index < data.length; index++) {
-                    try { times.push(parseFloat(data[index].timetaken_c1) + parseFloat(data[index].timetaken_c2)) }
+                    try {
+                        var float_1 = parseFloat(data[index].timetaken_c1)
+                        var float_2 = parseFloat(data[index].timetaken_c2)
+                        if (isNaN(float_2)) {
+                            times.push(float_1)
+                        }
+                        else
+                        {times.push(float_1 + float_2)} }
                     catch (e) {
                         try { times.push(parseFloat(data[index].timetaken_c1)) }
                         catch (e2) {console.log(e2)}
@@ -109,6 +117,11 @@ function App() {
                         final_dates.push(currDate)
                         final_times.push(timeAvg / count)
                         times_per_day.push(count)
+                        if ((currDate != dates[i]) && (i == (times.length - 1))) {
+                            final_dates.push(dates[i])
+                            final_times.push(times[i])
+                            times_per_day.push(1)
+                        }
                         currDate = dates[i];
                         timeAvg = times[i];
                         count = 1;
