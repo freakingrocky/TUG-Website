@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss'
 import { db } from './firebase-config'
-import { addDoc, collection, query, where, getDocs, Timestamp, updateDoc, doc as FirebaseDocument, deleteField } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs, Timestamp, updateDoc, doc as FirebaseDocument } from 'firebase/firestore';
 import Moment from 'moment';
 import { useTranslation } from "react-i18next";
 import i18next from 'i18next';
