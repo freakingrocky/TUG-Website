@@ -8,13 +8,13 @@ The website can time users while they perform a task, provide analytics *(Line G
 
 ## Personalized URL
 The URL of this project is https://tug-demo.netlify.app/ and is personalized based on the user based on the following schema:
-https://tug-demo.netlify.app/?__name=*Name*&__uid=*UID*
+https://tug-demo.netlify.app/?__name=*Name*&__user=*UID*
 
 A test user has been created for demonstration purposes with the following parameters:  \
 Name: test \
-UID: t1
+User: t1
 
-Thus, the URL for the user is: https://tug-demo.netlify.app/?__name=test&__uid=t1
+Thus, the URL for the user is: https://tug-demo.netlify.app/?__name=test&__user=t1
 
 The parameters in the name and UID fields are also meant to be a  simple form of verification. Thus, data from only registered users is stored in the database.
 
